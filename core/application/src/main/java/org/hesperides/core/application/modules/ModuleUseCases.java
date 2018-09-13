@@ -177,4 +177,11 @@ public class ModuleUseCases {
         }
         return queries.getProperties(moduleKey);
     }
+
+    public ModuleView getModuleByTimestamp(TemplateContainer.Key moduleKey, Long timestamp) {
+        if(!queries.moduleExists(moduleKey)){
+            throw new ModuleNotFoundException(moduleKey);
+        }
+        return  queries.getModuleByTimestamp(moduleKey,timestamp);
+    }
 }

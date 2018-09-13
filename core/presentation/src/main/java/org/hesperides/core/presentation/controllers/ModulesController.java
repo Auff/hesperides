@@ -222,4 +222,16 @@ public class ModulesController extends AbstractController {
 
         return ResponseEntity.ok(modelOutput);
     }
+
+    @ApiOperation("Get a module at a specific timestamp")
+    @GetMapping("/{module_name}/{module_version}/{module_type}/timestamp/{timestamp}")
+    public ResponseEntity<ModuleIO> getModuleByTimeStamp(@PathVariable("module_name") final String moduleName,
+                                                         @PathVariable("module_version") final String moduleVersion,
+                                                         @PathVariable("module_type") final TemplateContainer.VersionType versionType,
+                                                         @PathVariable("timestamp")final Long timestamp) {
+        TemplateContainer.Key moduleKey = new Module.Key(moduleName, moduleVersion, versionType);
+        ModuleView module = moduleUseCases.getModuleByTimestamp(moduleKey,timestamp);
+
+        return new ModuleIO(module);
+    }
 }

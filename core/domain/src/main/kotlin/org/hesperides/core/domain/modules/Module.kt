@@ -25,3 +25,4 @@ data class GetModuleVersionTypesQuery(val moduleName: String, val moduleVersion:
 data class GetModuleVersionsQuery(val moduleName: String)
 data class SearchModulesQuery(val input: String)
 data class GetModulePropertiesQuery(val moduleKey: TemplateContainer.Key)
+data class GetModuleByNameByTimestamp(val moduleKey: TemplateContainer.Key, val timestamp: Long)

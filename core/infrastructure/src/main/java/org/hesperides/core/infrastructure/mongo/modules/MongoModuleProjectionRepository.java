@@ -132,4 +132,9 @@ public class MongoModuleProjectionRepository implements ModuleProjectionReposito
         ModuleDocument moduleDocument = moduleRepository.findByKey(keyDocument);
         return AbstractPropertyDocument.toAbstractPropertyViews(moduleDocument.getProperties());
     }
+
+    @Override
+    public ModuleView onGetModuleByNameByTimestamp(GetModuleByKeyQuery query) {
+        return null;
+    }
 }

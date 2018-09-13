@@ -43,4 +43,7 @@ public interface ModuleProjectionRepository {
 
     @QueryHandler
     List<AbstractPropertyView> onGetModulePropertiesQuery(GetModulePropertiesQuery query);
+
+    @QueryHandler
+    ModuleView onGetModuleByNameByTimestamp(GetModuleByKeyQuery query);
 }
